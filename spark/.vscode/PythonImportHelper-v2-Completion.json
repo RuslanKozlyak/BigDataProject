@@ -1,0 +1,373 @@
+[
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "site",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "site",
+        "description": "site",
+        "detail": "site",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "pymongo",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pymongo",
+        "description": "pymongo",
+        "detail": "pymongo",
+        "documentation": {}
+    },
+    {
+        "label": "SparkSession",
+        "importPath": "pyspark.sql",
+        "description": "pyspark.sql",
+        "isExtraImport": true,
+        "detail": "pyspark.sql",
+        "documentation": {}
+    },
+    {
+        "label": "StringIndexer",
+        "importPath": "pyspark.ml.feature",
+        "description": "pyspark.ml.feature",
+        "isExtraImport": true,
+        "detail": "pyspark.ml.feature",
+        "documentation": {}
+    },
+    {
+        "label": "VectorAssembler",
+        "importPath": "pyspark.ml.feature",
+        "description": "pyspark.ml.feature",
+        "isExtraImport": true,
+        "detail": "pyspark.ml.feature",
+        "documentation": {}
+    },
+    {
+        "label": "LinearRegression",
+        "importPath": "pyspark.ml.regression",
+        "description": "pyspark.ml.regression",
+        "isExtraImport": true,
+        "detail": "pyspark.ml.regression",
+        "documentation": {}
+    },
+    {
+        "label": "RegressionEvaluator",
+        "importPath": "pyspark.ml.evaluation",
+        "description": "pyspark.ml.evaluation",
+        "isExtraImport": true,
+        "detail": "pyspark.ml.evaluation",
+        "documentation": {}
+    },
+    {
+        "label": "col",
+        "importPath": "pyspark.sql.functions",
+        "description": "pyspark.sql.functions",
+        "isExtraImport": true,
+        "detail": "pyspark.sql.functions",
+        "documentation": {}
+    },
+    {
+        "label": "bin_dir",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "bin_dir = os.path.dirname(abs_file)\nbase = bin_dir[: -len(\"Scripts\") - 1]  # strip away the bin part from the __file__, plus the path separator\n# prepend bin to PATH (this file is inside the bin directory)\nos.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "base",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "base = bin_dir[: -len(\"Scripts\") - 1]  # strip away the bin part from the __file__, plus the path separator\n# prepend bin to PATH (this file is inside the bin directory)\nos.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"PATH\"]",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "os.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"VIRTUAL_ENV\"]",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "os.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"VIRTUAL_ENV_PROMPT\"]",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "os.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "prev_length",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "prev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.path[:]",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "sys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.real_prefix",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "sys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.prefix",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "sys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_movie_data",
+        "kind": 2,
+        "importPath": "fetch_data",
+        "description": "fetch_data",
+        "peekOfCode": "def fetch_movie_data(api_key, page):\n    url = f\"https://api.kinopoisk.dev/movie?token={api_key}&field=rating.kp&search=7-10&page={page}&limit=10\"\n    response = requests.get(url)\n    if response.status_code == 200:\n        return response.json()\n    else:\n        return None\n# Загрузка данных и сохранение в MongoDB\nfor page in range(1, 11):  # Пример, загрузка первых 10 страниц\n    data = fetch_movie_data(API_KEY, page)",
+        "detail": "fetch_data",
+        "documentation": {}
+    },
+    {
+        "label": "API_KEY",
+        "kind": 5,
+        "importPath": "fetch_data",
+        "description": "fetch_data",
+        "peekOfCode": "API_KEY = 'F1SVK45-E294A8C-NQMH4KK-0HY6S4V'\nMONGO_URI = \"mongodb://root:example@localhost:27017\"\nDB_NAME = \"movies\"\nCOLLECTION_NAME = \"films\"\n# Соединение с MongoDB\nclient = pymongo.MongoClient(MONGO_URI)\ndb = client[DB_NAME]\ncollection = db[COLLECTION_NAME]\n# Функция для получения данных из API Кинопоиска\ndef fetch_movie_data(api_key, page):",
+        "detail": "fetch_data",
+        "documentation": {}
+    },
+    {
+        "label": "MONGO_URI",
+        "kind": 5,
+        "importPath": "fetch_data",
+        "description": "fetch_data",
+        "peekOfCode": "MONGO_URI = \"mongodb://root:example@localhost:27017\"\nDB_NAME = \"movies\"\nCOLLECTION_NAME = \"films\"\n# Соединение с MongoDB\nclient = pymongo.MongoClient(MONGO_URI)\ndb = client[DB_NAME]\ncollection = db[COLLECTION_NAME]\n# Функция для получения данных из API Кинопоиска\ndef fetch_movie_data(api_key, page):\n    url = f\"https://api.kinopoisk.dev/movie?token={api_key}&field=rating.kp&search=7-10&page={page}&limit=10\"",
+        "detail": "fetch_data",
+        "documentation": {}
+    },
+    {
+        "label": "DB_NAME",
+        "kind": 5,
+        "importPath": "fetch_data",
+        "description": "fetch_data",
+        "peekOfCode": "DB_NAME = \"movies\"\nCOLLECTION_NAME = \"films\"\n# Соединение с MongoDB\nclient = pymongo.MongoClient(MONGO_URI)\ndb = client[DB_NAME]\ncollection = db[COLLECTION_NAME]\n# Функция для получения данных из API Кинопоиска\ndef fetch_movie_data(api_key, page):\n    url = f\"https://api.kinopoisk.dev/movie?token={api_key}&field=rating.kp&search=7-10&page={page}&limit=10\"\n    response = requests.get(url)",
+        "detail": "fetch_data",
+        "documentation": {}
+    },
+    {
+        "label": "COLLECTION_NAME",
+        "kind": 5,
+        "importPath": "fetch_data",
+        "description": "fetch_data",
+        "peekOfCode": "COLLECTION_NAME = \"films\"\n# Соединение с MongoDB\nclient = pymongo.MongoClient(MONGO_URI)\ndb = client[DB_NAME]\ncollection = db[COLLECTION_NAME]\n# Функция для получения данных из API Кинопоиска\ndef fetch_movie_data(api_key, page):\n    url = f\"https://api.kinopoisk.dev/movie?token={api_key}&field=rating.kp&search=7-10&page={page}&limit=10\"\n    response = requests.get(url)\n    if response.status_code == 200:",
+        "detail": "fetch_data",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "fetch_data",
+        "description": "fetch_data",
+        "peekOfCode": "client = pymongo.MongoClient(MONGO_URI)\ndb = client[DB_NAME]\ncollection = db[COLLECTION_NAME]\n# Функция для получения данных из API Кинопоиска\ndef fetch_movie_data(api_key, page):\n    url = f\"https://api.kinopoisk.dev/movie?token={api_key}&field=rating.kp&search=7-10&page={page}&limit=10\"\n    response = requests.get(url)\n    if response.status_code == 200:\n        return response.json()\n    else:",
+        "detail": "fetch_data",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "kind": 5,
+        "importPath": "fetch_data",
+        "description": "fetch_data",
+        "peekOfCode": "db = client[DB_NAME]\ncollection = db[COLLECTION_NAME]\n# Функция для получения данных из API Кинопоиска\ndef fetch_movie_data(api_key, page):\n    url = f\"https://api.kinopoisk.dev/movie?token={api_key}&field=rating.kp&search=7-10&page={page}&limit=10\"\n    response = requests.get(url)\n    if response.status_code == 200:\n        return response.json()\n    else:\n        return None",
+        "detail": "fetch_data",
+        "documentation": {}
+    },
+    {
+        "label": "collection",
+        "kind": 5,
+        "importPath": "fetch_data",
+        "description": "fetch_data",
+        "peekOfCode": "collection = db[COLLECTION_NAME]\n# Функция для получения данных из API Кинопоиска\ndef fetch_movie_data(api_key, page):\n    url = f\"https://api.kinopoisk.dev/movie?token={api_key}&field=rating.kp&search=7-10&page={page}&limit=10\"\n    response = requests.get(url)\n    if response.status_code == 200:\n        return response.json()\n    else:\n        return None\n# Загрузка данных и сохранение в MongoDB",
+        "detail": "fetch_data",
+        "documentation": {}
+    },
+    {
+        "label": "spark",
+        "kind": 5,
+        "importPath": "spark-job",
+        "description": "spark-job",
+        "peekOfCode": "spark = SparkSession.builder \\\n    .appName(\"Movie Predictions\") \\\n    .config(\"spark.mongodb.input.uri\", \"mongodb://root:example@mongodb:27017/movies.films\") \\\n    .getOrCreate()\n# Чтение данных из MongoDB\ndf = spark.read.format(\"mongo\").load()\n# Предобработка данных (Пример: Извлечение некоторых полей и индексирование категорий)\ndf = df.select(\"name\", \"year\", \"rating.kp\", \"votes.kp\")\ndf = df.dropna()\n# Индексирование категориальных переменных",
+        "detail": "spark-job",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "spark-job",
+        "description": "spark-job",
+        "peekOfCode": "df = spark.read.format(\"mongo\").load()\n# Предобработка данных (Пример: Извлечение некоторых полей и индексирование категорий)\ndf = df.select(\"name\", \"year\", \"rating.kp\", \"votes.kp\")\ndf = df.dropna()\n# Индексирование категориальных переменных\nindexer = StringIndexer(inputCol=\"name\", outputCol=\"nameIndex\")\ndf = indexer.fit(df).transform(df)\n# Формирование вектора признаков\nassembler = VectorAssembler(inputCols=[\"year\", \"votes.kp\", \"nameIndex\"], outputCol=\"features\")\ndf = assembler.transform(df)",
+        "detail": "spark-job",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "spark-job",
+        "description": "spark-job",
+        "peekOfCode": "df = df.select(\"name\", \"year\", \"rating.kp\", \"votes.kp\")\ndf = df.dropna()\n# Индексирование категориальных переменных\nindexer = StringIndexer(inputCol=\"name\", outputCol=\"nameIndex\")\ndf = indexer.fit(df).transform(df)\n# Формирование вектора признаков\nassembler = VectorAssembler(inputCols=[\"year\", \"votes.kp\", \"nameIndex\"], outputCol=\"features\")\ndf = assembler.transform(df)\n# Разделение на тренировочные и тестовые данные\ntrain_data, test_data = df.randomSplit([0.8, 0.2])",
+        "detail": "spark-job",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "spark-job",
+        "description": "spark-job",
+        "peekOfCode": "df = df.dropna()\n# Индексирование категориальных переменных\nindexer = StringIndexer(inputCol=\"name\", outputCol=\"nameIndex\")\ndf = indexer.fit(df).transform(df)\n# Формирование вектора признаков\nassembler = VectorAssembler(inputCols=[\"year\", \"votes.kp\", \"nameIndex\"], outputCol=\"features\")\ndf = assembler.transform(df)\n# Разделение на тренировочные и тестовые данные\ntrain_data, test_data = df.randomSplit([0.8, 0.2])\n# Обучение модели линейной регрессии",
+        "detail": "spark-job",
+        "documentation": {}
+    },
+    {
+        "label": "indexer",
+        "kind": 5,
+        "importPath": "spark-job",
+        "description": "spark-job",
+        "peekOfCode": "indexer = StringIndexer(inputCol=\"name\", outputCol=\"nameIndex\")\ndf = indexer.fit(df).transform(df)\n# Формирование вектора признаков\nassembler = VectorAssembler(inputCols=[\"year\", \"votes.kp\", \"nameIndex\"], outputCol=\"features\")\ndf = assembler.transform(df)\n# Разделение на тренировочные и тестовые данные\ntrain_data, test_data = df.randomSplit([0.8, 0.2])\n# Обучение модели линейной регрессии\nlr = LinearRegression(labelCol=\"rating.kp\", featuresCol=\"features\")\nlr_model = lr.fit(train_data)",
+        "detail": "spark-job",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "spark-job",
+        "description": "spark-job",
+        "peekOfCode": "df = indexer.fit(df).transform(df)\n# Формирование вектора признаков\nassembler = VectorAssembler(inputCols=[\"year\", \"votes.kp\", \"nameIndex\"], outputCol=\"features\")\ndf = assembler.transform(df)\n# Разделение на тренировочные и тестовые данные\ntrain_data, test_data = df.randomSplit([0.8, 0.2])\n# Обучение модели линейной регрессии\nlr = LinearRegression(labelCol=\"rating.kp\", featuresCol=\"features\")\nlr_model = lr.fit(train_data)\n# Предсказания",
+        "detail": "spark-job",
+        "documentation": {}
+    },
+    {
+        "label": "assembler",
+        "kind": 5,
+        "importPath": "spark-job",
+        "description": "spark-job",
+        "peekOfCode": "assembler = VectorAssembler(inputCols=[\"year\", \"votes.kp\", \"nameIndex\"], outputCol=\"features\")\ndf = assembler.transform(df)\n# Разделение на тренировочные и тестовые данные\ntrain_data, test_data = df.randomSplit([0.8, 0.2])\n# Обучение модели линейной регрессии\nlr = LinearRegression(labelCol=\"rating.kp\", featuresCol=\"features\")\nlr_model = lr.fit(train_data)\n# Предсказания\npredictions = lr_model.transform(test_data)\npredictions.select(\"features\", \"rating.kp\", \"prediction\").show(10)",
+        "detail": "spark-job",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "spark-job",
+        "description": "spark-job",
+        "peekOfCode": "df = assembler.transform(df)\n# Разделение на тренировочные и тестовые данные\ntrain_data, test_data = df.randomSplit([0.8, 0.2])\n# Обучение модели линейной регрессии\nlr = LinearRegression(labelCol=\"rating.kp\", featuresCol=\"features\")\nlr_model = lr.fit(train_data)\n# Предсказания\npredictions = lr_model.transform(test_data)\npredictions.select(\"features\", \"rating.kp\", \"prediction\").show(10)\n# Оценка модели",
+        "detail": "spark-job",
+        "documentation": {}
+    },
+    {
+        "label": "lr",
+        "kind": 5,
+        "importPath": "spark-job",
+        "description": "spark-job",
+        "peekOfCode": "lr = LinearRegression(labelCol=\"rating.kp\", featuresCol=\"features\")\nlr_model = lr.fit(train_data)\n# Предсказания\npredictions = lr_model.transform(test_data)\npredictions.select(\"features\", \"rating.kp\", \"prediction\").show(10)\n# Оценка модели\nevaluator = RegressionEvaluator(labelCol=\"rating.kp\", predictionCol=\"prediction\", metricName=\"rmse\")\nrmse = evaluator.evaluate(predictions)\nprint(f\"RMSE: {rmse}\")\nspark.stop()",
+        "detail": "spark-job",
+        "documentation": {}
+    },
+    {
+        "label": "lr_model",
+        "kind": 5,
+        "importPath": "spark-job",
+        "description": "spark-job",
+        "peekOfCode": "lr_model = lr.fit(train_data)\n# Предсказания\npredictions = lr_model.transform(test_data)\npredictions.select(\"features\", \"rating.kp\", \"prediction\").show(10)\n# Оценка модели\nevaluator = RegressionEvaluator(labelCol=\"rating.kp\", predictionCol=\"prediction\", metricName=\"rmse\")\nrmse = evaluator.evaluate(predictions)\nprint(f\"RMSE: {rmse}\")\nspark.stop()",
+        "detail": "spark-job",
+        "documentation": {}
+    },
+    {
+        "label": "predictions",
+        "kind": 5,
+        "importPath": "spark-job",
+        "description": "spark-job",
+        "peekOfCode": "predictions = lr_model.transform(test_data)\npredictions.select(\"features\", \"rating.kp\", \"prediction\").show(10)\n# Оценка модели\nevaluator = RegressionEvaluator(labelCol=\"rating.kp\", predictionCol=\"prediction\", metricName=\"rmse\")\nrmse = evaluator.evaluate(predictions)\nprint(f\"RMSE: {rmse}\")\nspark.stop()",
+        "detail": "spark-job",
+        "documentation": {}
+    },
+    {
+        "label": "evaluator",
+        "kind": 5,
+        "importPath": "spark-job",
+        "description": "spark-job",
+        "peekOfCode": "evaluator = RegressionEvaluator(labelCol=\"rating.kp\", predictionCol=\"prediction\", metricName=\"rmse\")\nrmse = evaluator.evaluate(predictions)\nprint(f\"RMSE: {rmse}\")\nspark.stop()",
+        "detail": "spark-job",
+        "documentation": {}
+    },
+    {
+        "label": "rmse",
+        "kind": 5,
+        "importPath": "spark-job",
+        "description": "spark-job",
+        "peekOfCode": "rmse = evaluator.evaluate(predictions)\nprint(f\"RMSE: {rmse}\")\nspark.stop()",
+        "detail": "spark-job",
+        "documentation": {}
+    }
+]

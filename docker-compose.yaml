@@ -1,0 +1,31 @@
+version: '3.3'
+
+services: 
+  mongodb:
+    build: ./mongodb
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+  fetcher:
+    build: ./fetcher
+    container_name: fetcher
+    depends_on:
+      - mongodb
+  spark:
+    build: ./spark
+    container_name: spark
+    ports:
+      - "8888:8888"
+    depends_on:
+      - mongodb
+      - fetcher
+    environment:
+      - PYSPARK_PYTHON=python3
+      - PYSPARK_DRIVER_PYTHON=python3
+    volumes:
+      - ./spark/data:/data
+      - ./spark/spark-job.py:/app/spark-job.py
+volumes:
+  mongo_data:

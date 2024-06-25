@@ -1,4 +1,0 @@
-pymongo[srv]
-requests
-pyspark
-numpy

@@ -1,31 +1,73 @@
-version: '3.3'
+version: '3'
 
-services: 
+services:
   mongodb:
-    build: ./mongodb
+    image: mongo:latest
     container_name: mongodb
     ports:
       - "27017:27017"
     volumes:
-      - mongo_data:/data/db
+      - mongodb_data:/data/db
+    networks:
+      - spark-network
+
   fetcher:
-    build: ./fetcher
+    build:
+      context: ./fetcher
+      dockerfile: Dockerfile
     container_name: fetcher
     depends_on:
       - mongodb
+    environment:
+      - KINOPOISK_API_KEY=YDPWWTS-JVM4R5E-M1R099K-PC8GT9R
+    networks:
+      - spark-network
+      
   spark:
-    build: ./spark
+    image: bitnami/spark:latest
     container_name: spark
+    environment:
+      - SPARK_MODE=master
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+    networks:
+      - spark-network
+
+  spark-worker:
+    image: bitnami/spark:latest
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+    depends_on:
+      - spark
+    networks:
+      - spark-network
+
+  jupyter:
+    image: jupyter/pyspark-notebook:latest
+    container_name: jupyter
     ports:
       - "8888:8888"
-    depends_on:
-      - mongodb
-      - fetcher
     environment:
-      - PYSPARK_PYTHON=python3
-      - PYSPARK_DRIVER_PYTHON=python3
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=password
     volumes:
-      - ./spark/data:/data
-      - ./spark/spark-job.py:/app/spark-job.py
+      - ./jupyter:/home/jovyan/work
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+    networks:
+      - spark-network
+
 volumes:
-  mongo_data:
+  mongodb_data:
+  jupyter_data:
+
+networks:
+  spark-network:
+    driver: bridge

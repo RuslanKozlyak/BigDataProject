@@ -1,44 +1,73 @@
+
 import requests
-import pymongo
 import time
+from pymongo import MongoClient
 
-# Конфигурация
-API_KEY = 'F1SVK45-E294A8C-NQMH4KK-0HY6S4V'
-MONGO_URI = "mongodb://root:example@mongodb:27017"
-DB_NAME = "movies"
-COLLECTION_NAME = "films"
+# file: data_loader.py
+import requests
+import time
+from pymongo import MongoClient
+import os
 
-# Ожидание доступности MongoDB
-client = None
-for i in range(5):
-    try:
-        client = pymongo.MongoClient(MONGO_URI)
-        break
-    except pymongo.errors.ConnectionFailure:
-        print("MongoDB недоступна, пробую снова через 5 секунд...")
-        time.sleep(5)
+# Kinopoisk.dev API configuration
+API_KEY = os.environ.get('KINOPOISK_API_KEY')
+BASE_URL = 'https://api.kinopoisk.dev/v1.4/movie'
+HEADERS = {
+    'X-API-KEY': API_KEY,
+    'Content-Type': 'application/json',
+}
 
-if not client:
-    raise Exception("Не удалось подключиться к MongoDB")
+# MongoDB configuration
+MONGO_URI = 'mongodb://mongodb:27017/'
+DB_NAME = 'movies_db'
+COLLECTION_NAME = 'movies'
 
-db = client[DB_NAME]
-collection = db[COLLECTION_NAME]
-
-# Функция для получения данных из API Кинопоиска
-def fetch_movie_data(api_key, page):
-    url = f"https://api.kinopoisk.dev/v1.4/movie?token=F1SVK45-E294A8C-NQMH4KK-0HY6S4V&field=rating.kp&search=7-10&page=1&limit=10"
-    response = requests.get(url)
+def fetch_movies(page=1, limit=20):
+    params = {
+        'page': page,
+        'limit': limit,
+        'selectFields': ['id', 'name', 'alternativeName', 'year', 'rating', 'description', 'shortDescription', 'poster', 'genres', 'countries'],
+        'sortField': 'rating.kp',
+        'sortType': '-1'  # Descending order
+    }
+    
+    response = requests.get(BASE_URL, headers=HEADERS, params=params)
     if response.status_code == 200:
         return response.json()
     else:
+        print(f"Error fetching data: {response.status_code}")
+        print(response.text)
         return None
 
-# Загрузка данных и сохранение в MongoDB
-for page in range(1, 2):  # Пример, загрузка первых 10 страниц
-    data = fetch_movie_data(API_KEY, page)
-    if data:
-        collection.insert_many(data['docs'])
-    else:
-        print(f"Ошибка при загрузке данных для страницы {page}")
+def insert_movies_to_db(movies):
+    client = MongoClient(MONGO_URI)
+    db = client[DB_NAME]
+    collection = db[COLLECTION_NAME]
+    
+    for movie in movies['docs']:
+        collection.update_one({'id': movie['id']}, {'$set': movie}, upsert=True)
+    
+    client.close()
 
-print("Загрузка завершена!")
+def main():
+    page = 1
+    total_pages = 1
+    
+    while page <= total_pages:
+        print(f"Fetching page {page}...")
+        movies_data = fetch_movies(page)
+        
+        if movies_data:
+            total_pages = movies_data['pages']
+            insert_movies_to_db(movies_data)
+            print(f"Inserted/Updated {len(movies_data['docs'])} movies")
+        else:
+            break
+        
+        page += 1
+        time.sleep(0.2)  # To avoid hitting API rate limits
+
+    print("Data loading completed!")
+
+if __name__ == "__main__":
+    main()

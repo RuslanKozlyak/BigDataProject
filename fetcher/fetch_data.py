@@ -113,8 +113,11 @@ def main():
     lon = float(os.environ.get('LON'))
 
     # Dates for the specified period in unix time
-    end_date = date.today()
+    end_date = date.today()  - timedelta(days=5)
     start_date = date.today() - timedelta(days=365*2)
+
+    start_date = datetime(2022, 1, 1)
+    end_date = datetime(2024, 6, 20)
 
     client = MongoClient(MONGO_URI)
     db = client[WETHER_BD]

@@ -19,7 +19,9 @@ services:
     depends_on:
       - mongodb
     environment:
-      - KINOPOISK_API_KEY=YDPWWTS-JVM4R5E-M1R099K-PC8GT9R
+      - API_KEY=66343612d0556eebd2618dd39051ab66
+      - LAT=59.9375
+      - LON=30.308611
     networks:
       - spark-network
       

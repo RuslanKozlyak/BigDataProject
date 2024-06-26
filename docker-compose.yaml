@@ -22,6 +22,7 @@ services:
       - API_KEY=66343612d0556eebd2618dd39051ab66
       - LAT=59.9375
       - LON=30.308611
+    restart: always
     networks:
       - spark-network
       
